@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Demo app with intentionally flaky tests for Datadog CI Visibility",
   "scripts": {
-    "test": "jest",
-    "test:flaky": "jest __tests__/flaky.test.ts"
+    "test": "NODE_OPTIONS='-r dd-trace/ci/jest/env' jest --coverage",
+    "test:flaky": "NODE_OPTIONS='-r dd-trace/ci/jest/env' jest __tests__/flaky.test.ts",
+    "test:ci": "NODE_OPTIONS='-r dd-trace/ci/jest/env' jest --ci"
   },
   "devDependencies": {
+    "@datadog/datadog-ci": "^2.48.1",
     "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "dd-trace": "^5.30.0",
     "jest": "^29.5.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.0"
