@@ -28,7 +28,8 @@ jobs:
         uses: datadog/test-visibility-github-action@v2
         with:
           languages: js
-          dd_api_key: ${{ secrets.DD_API_KEY }}
-          dd_site: datadoghq.com
-          dd_service: flaky-test-demo-app
-          dd_env: github-actions
+          api-key: ${{ secrets.DD_API_KEY }}
+          site: datadoghq.com
+          service: flaky-test-demo-app
+        env:
+          DD_ENV: github-actions
